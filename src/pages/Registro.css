@@ -37,12 +37,14 @@ h1 {
 font-size: 2.5rem;
 margin-bottom: 1rem;
 text-align: center;
+color:white;
 }
 
 h6 {
 font-size: 1.2rem;
 margin-top: -0.5rem;
 text-align: center;
+color:white;
 }
 
 img {
@@ -118,4 +120,8 @@ a {
 /* Estilo cuando el enlace se encuentra en estado de enlace (sin visitar) */
 a:hover {
   background-color: #0056b3;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
 }

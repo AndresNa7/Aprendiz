@@ -11,12 +11,16 @@ import "./Registro.css";
 import { registrarUsuario } from '../api/registro';
 import { obtenerFichas } from '../api/ficha'; 
 import { obtenerEPS } from '../api/Eps'; 
+import { obtenerdominio } from '../api/Dominio';
+import { obtenerRol } from '../api/rol';
+ 
 
 
   //REGISTRASE
   const Registro = () => {
     const handleClick = () => {
       alert('¡Botón clickeado!');
+     
     };
   
     const [formData, setFormData] = useState({
@@ -29,12 +33,19 @@ import { obtenerEPS } from '../api/Eps';
       event.preventDefault();
   
       try {
-        const responseData = await registrarUsuario(formData);
-        console.log('Respuesta del servidor:', responseData);
+        const obtener = await obtenerdominio()
+        console.log(obtener)
+        const obtener2 = await obtenerRol()
+        console.log(obtener2)
+
+
+       const responseData = await registrarUsuario(formData);
+       console.log('Respuesta del servidor:', responseData);
       } catch (error) {
         console.error('Error al registrar usuario:', error);
       }
     };
+  
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -45,13 +56,9 @@ import { obtenerEPS } from '../api/Eps';
     };
     //
     const [seccionActual, setSeccionActual] = useState("informacionPersonal");
-
-// Función para cambiar a la sección de información de cuenta
     const mostrarInformacionCuenta = () => {
     setSeccionActual("informacionCuenta");
     };
-
-// Función para cambiar a la sección de información personal
     const mostrarInformacionPersonal = () => {
     setSeccionActual("informacionPersonal");
   };
@@ -66,26 +73,39 @@ return (
     <form onSubmit={handleSubmit}>
       
       {seccionActual === "informacionPersonal" && (
-        <div>
-          <input
-            type="text"
-            name="nombres"
-            placeholder="Nombres*"
-            value={formData.nombres}
-            onChange={handleInputChange}
-          />
-          
-        <input
-          type="text"
-          name="apellidos"
-          placeholder="Apellidos*"
-          value={formData.apellidos}
-          onChange={handleInputChange}
-        />
+        <div style={{ position: 'relative' }}>
+    <input
+    type="text"
+    name="nombres"
+    placeholder="Nombres*"
+    value={formData.nombres}
+    onChange={handleInputChange}
+    required
+  />
+      {formData.nombres === '' && (
+      <span className="error-message" style={{ position: 'absolute', top: '40px', left: '0', color: 'red', fontSize: '12px' }}>
+      Este campo es obligatorio.
+      </span>
+    )}
+    <div style={{ position: 'relative' }}>
+    <input
+    type="text"
+    name="apellidos"
+    placeholder="Apellidos*"
+    value={formData.apellidos}
+    onChange={handleInputChange}
+    required
+  />
+      {formData.nombres === '' && (
+      <span className="error-message" style={{ position: 'absolute', top: '40px', left: '0', color: 'red', fontSize: '12px' }}>
+      Este campo es obligatorio.
+      </span>
+    )}
+       </div> 
        <Desplegable
         label="Tipo de Documento*"
         options={[
-          { value: "Tipo de Documento", label: "Tipo de Documentp" },
+          { value: "Tipo de Documento", label: "Tipo de Documento" },
           { value: "Tarjeta de identidad", label: "Tarjeta de identidad" },
           { value: "cedula", label: "Cédula" },
           { value: "otro", label: "Otro" },
@@ -138,6 +158,14 @@ return (
           { label: 2912267, programa: "cocina" },
         ]}
       />
+       <Autocomplete
+        nombre="EPS"
+        array={[
+          { label: "cosalud", programa: "Programación de software" },
+          { label: 2812267, programa: "analicis " },
+          { label: 2912267, programa: "cocina" },
+        ]}
+      />
            <Desplegable
       label="Tipo de Sangre"
         options={[
@@ -151,10 +179,12 @@ return (
       <a href="#" onClick={mostrarInformacionPersonal}>Atrás</a>
       <Button label="Registrar" onClick={handleClick} />
       <Politicas label="Politicas*" />
+      
         </div>
       )}
     </form>
   </div>
+ 
 );
 };
 export default Registro;
