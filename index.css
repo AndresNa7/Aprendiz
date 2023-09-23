@@ -1,0 +1,7 @@
+/* En tu archivo index.css o styles.css */
+body {
+  background-image: url(./src/fondo/stacked-waves-haikei\ \(1\).svg); /* Reemplaza 'ruta/al/tu-archivo.svg' con la ruta correcta a tu archivo SVG */
+  background-size: cover; /* Ajusta el tamaño para cubrir toda la página */
+  background-repeat: no-repeat; /* Evita la repetición del fondo */
+  background-attachment: fixed; /* Fija el fondo en su lugar */
+}
