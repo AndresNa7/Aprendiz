@@ -43,23 +43,38 @@ import { obtenerEPS } from '../api/Eps';
         [name]: value,
       });
     };
- 
+    //
+    const [seccionActual, setSeccionActual] = useState("informacionPersonal");
 
-  return (
-    <div>
-      <img src={miImagen} alt="Logo de bienestar" />
-      <h1>REGISTRO</h1>
-      <h6>
+// Función para cambiar a la sección de información de cuenta
+    const mostrarInformacionCuenta = () => {
+    setSeccionActual("informacionCuenta");
+    };
+
+// Función para cambiar a la sección de información personal
+    const mostrarInformacionPersonal = () => {
+    setSeccionActual("informacionPersonal");
+  };
+
+return (
+  <div>
+    <img src={miImagen} alt="Logo de bienestar" />
+    <h1>REGISTRO</h1>
+    <h6>
       <br />No tienes una cuenta? Regístrate aquí
-      </h6>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nombres"
-          placeholder="Nombres*"
-          value={formData.nombres}
-          onChange={handleInputChange}
-        />
+    </h6>
+    <form onSubmit={handleSubmit}>
+      
+      {seccionActual === "informacionPersonal" && (
+        <div>
+          <input
+            type="text"
+            name="nombres"
+            placeholder="Nombres*"
+            value={formData.nombres}
+            onChange={handleInputChange}
+          />
+          
         <input
           type="text"
           name="apellidos"
@@ -67,23 +82,37 @@ import { obtenerEPS } from '../api/Eps';
           value={formData.apellidos}
           onChange={handleInputChange}
         />
-      <Desplegable
+       <Desplegable
         label="Tipo de Documento*"
         options={[
-          { value: "Targeta de identidad", label: "Targeta de identidad" },
+          { value: "Tipo de Documento", label: "Tipo de Documentp" },
+          { value: "Tarjeta de identidad", label: "Tarjeta de identidad" },
           { value: "cedula", label: "Cédula" },
           { value: "otro", label: "Otro" },
         ]}
       />
       <Fecha label="Fecha de Nacimiento" />
-      <Input label="Correo Personal" />
+          <input
+            type="text"
+            name="correoPersonal"
+            placeholder="Correo Personal*"
+            value={formData.correoPersonal}
+            onChange={handleInputChange}
+          />
       <Input label="Teléfono" />
       <Input label="Correo Institucional" />
       <Password labelText="Contraseña" />
       <Password labelText="Confirmación Contreseña" />
+      <a href="#" onClick={mostrarInformacionCuenta}>Siguiente</a>
+
+        </div>
+      )}
+      {seccionActual === "informacionCuenta" && (
+        <div>
       <Desplegable
       label="Genero*"
         options={[
+          { value: "Seleccionar Genero", label: "Seleccionar Genero" },
           { value: "masculino", label: "Masculino" },
           { value: "femenino", label: "Femenino" },
           { value: "otro", label: "Otro" },
@@ -91,14 +120,16 @@ import { obtenerEPS } from '../api/Eps';
       />
    
 
-      <Desplegable
+   <Desplegable
       label="Rol*"
         options={[
+          { value: "Rol", label: "Rol" },
           { value: "aprendiz", label: "Aprendiz" },
           { value: "instructor", label: "Instructor" },
           { value: "administrador", label: "Administrador" },
         ]}
       />
+
       <Autocomplete
         nombre="Ficha"
         array={[
@@ -107,20 +138,23 @@ import { obtenerEPS } from '../api/Eps';
           { label: 2912267, programa: "cocina" },
         ]}
       />
-      <Desplegable
+           <Desplegable
       label="Tipo de Sangre"
         options={[
+          { value: "Tipo de sangre", label: "Tipo de sangre" },
           { value: "a+", label: "A+ " },
           { value: "o+", label: "O+" },
           { value: "b+", label: "B+" },
         ]}
       />
       <Input label="Dirección" />
+      <a href="#" onClick={mostrarInformacionPersonal}>Atrás</a>
       <Button label="Registrar" onClick={handleClick} />
       <Politicas label="Politicas*" />
-      </form>
-    </div>
-  );
+        </div>
+      )}
+    </form>
+  </div>
+);
 };
-
 export default Registro;

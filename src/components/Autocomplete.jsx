@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import './Autocomplete.css';
 export default function AutoComplete({ nombre, array, obligatorio }) {
   const [value, setValue] = React.useState(null); 
   return (
