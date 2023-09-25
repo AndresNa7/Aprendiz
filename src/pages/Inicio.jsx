@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Inicio.css';
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -17,11 +17,12 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='contenedor'>
       <h2>Iniciar Sesión</h2>
+      <div className="contenedor-hijo">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Correo Institucional:</label>
+          <label className='inicio-correoinst' htmlFor="email">Correo Institucional:</label>
           <input
             type="email"
             id="email"
@@ -32,7 +33,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Contraseña:</label>
+          <label className='contraseña' htmlFor="password">Contraseña:</label>
           <input
             type="password"
             id="password"
@@ -44,6 +45,7 @@ const Login = () => {
         </div>
         <button type="submit">Iniciar Sesión</button>
       </form>
+      </div>
     </div>
   );
 };
