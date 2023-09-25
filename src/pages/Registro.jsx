@@ -75,6 +75,7 @@ return (
       {seccionActual === "informacionPersonal" && (
         <div style={{ position: 'relative' }}>
     <input
+    className='nombre'
     type="text"
     name="nombres"
     placeholder="Nombres*"
@@ -89,6 +90,7 @@ return (
     )}
     <div style={{ position: 'relative' }}>
     <input
+    className='apellido'
     type="text"
     name="apellidos"
     placeholder="Apellidos*"
