@@ -24,7 +24,7 @@ import { obtenerRol } from '../api/rol';
     };
     const [formData, setFormData] = useState({
       nombres: '',
-      apellidos: '',
+      apellidos: '', 
       
     });
     const handleSubmit = async (event) => {
@@ -83,11 +83,12 @@ return (
     type="text"
     name="nombres"
     label="Nombres*"
+    placeholder="nombres*"
     value={formData.nombres}
     onChange={handleInputChange}
     required
   />
-      {formData.nombres === '' && (
+      {formData.nombres === 'nombres' && (
       <span className="error-message" style={{ position: 'absolute', top: '40px', left: '0', color: 'red', fontSize: '12px' }}>
       Este campo es obligatorio.
       </span>
@@ -97,6 +98,7 @@ return (
     type="text"
     name="apellidos"
     label="Apellidos*"
+    placeholder="apellidos*"
     value={formData.apellidos}
     onChange={handleInputChange}
     required
