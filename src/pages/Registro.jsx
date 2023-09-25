@@ -16,29 +16,26 @@ import { obtenerRol } from '../api/rol';
  
 
 
-  //REGISTRASE
+  //la parte de registro
   const Registro = () => {
     const handleClick = () => {
       alert('¡Botón clickeado!');
      
     };
-  
     const [formData, setFormData] = useState({
       nombres: '',
       apellidos: '',
-      // Agrega otros campos del formulario aquí
+      
     });
-  
     const handleSubmit = async (event) => {
       event.preventDefault();
-  
+
+  // la parte de peticiones dedominio, rol
       try {
         const obtener = await obtenerdominio()
         console.log(obtener)
         const obtener2 = await obtenerRol()
         console.log(obtener2)
-
-
        const responseData = await registrarUsuario(formData);
        console.log('Respuesta del servidor:', responseData);
       } catch (error) {
@@ -46,21 +43,28 @@ import { obtenerRol } from '../api/rol';
       }
     };
   
-  
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    };
-    //
+    //la parte de transicion
     const [seccionActual, setSeccionActual] = useState("informacionPersonal");
     const mostrarInformacionCuenta = () => {
     setSeccionActual("informacionCuenta");
     };
     const mostrarInformacionPersonal = () => {
     setSeccionActual("informacionPersonal");
+  };
+  //la parte de validacion de apellido 
+  const [errors, setErrors] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Validar si el campo de apellidos está vacío y establecer un error si es necesario
+    if (name === 'apellidos' && value.trim() === '') {
+      setErrors({ ...errors, [name]: 'Apellidos es obligatorio' });
+    } else {
+      // Borrar el error si el campo se ha completado
+      setErrors({ ...errors, [name]: '' });
+    }
   };
 
 return (
@@ -78,7 +82,7 @@ return (
     className='nombre'
     type="text"
     name="nombres"
-    placeholder="Nombres*"
+    label="Nombres*"
     value={formData.nombres}
     onChange={handleInputChange}
     required
@@ -90,20 +94,19 @@ return (
     )}
     <div style={{ position: 'relative' }}>
     <input
-    className='apellido'
     type="text"
     name="apellidos"
-    placeholder="Apellidos*"
+    label="Apellidos*"
     value={formData.apellidos}
     onChange={handleInputChange}
     required
   />
-      {formData.nombres === '' && (
-      <span className="error-message" style={{ position: 'absolute', top: '40px', left: '0', color: 'red', fontSize: '12px' }}>
+  {formData.apellidos === '' && (
+    <span className="error-message" style={{ position: 'absolute', top: '40px', left: '0', color: 'red', fontSize: '12px' }}>
       Este campo es obligatorio.
-      </span>
-    )}
-       </div> 
+    </span>
+  )}
+</div>
        <Desplegable
         label="Tipo de Documento*"
         options={[

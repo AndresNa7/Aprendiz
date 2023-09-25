@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Registro from '../pages/Registro'
-import { Inicio } from '../pages/Inicio';
+import Inicio from '../pages/Inicio'
 
 
 const NARouters = () => {

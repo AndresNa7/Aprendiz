@@ -125,3 +125,10 @@ a:hover {
   color: red;
   font-size: 12px;
 }
+.error-message {
+  position: absolute;
+  top: 10px; /* Puedes ajustar la distancia desde arriba según tus necesidades */
+  left: 0;
+  color: red;
+  font-size: 12px;
+}
