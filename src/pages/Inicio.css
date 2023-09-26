@@ -1,26 +1,27 @@
-*{
+* {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.contenedor{
+.inicio {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width:100%;
-    min-height: 100vh;
-    background-position:center;
-    background-size:cover;
+    justify-content: center;
+    width: 34%;
+    min-height: 10vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-color: #ffffff79;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
 
 }
 
-.inicio-correoinst{
-    color:aqua;
-
-
-}
-
-.contenedor-hijo{
-    background-color: aliceblue;
+.contenedor {
+    color: black;
 }
