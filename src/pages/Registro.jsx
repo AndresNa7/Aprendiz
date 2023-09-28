@@ -13,7 +13,6 @@ import { obtenerFichas } from '../api/ficha';
 import { obtenerEPS } from '../api/Eps'; 
 import { obtenerdominio } from '../api/Dominio';
 import { obtenerRol } from '../api/rol';
-import { useNavigate } from 'react-router-dom';
  
 
 
@@ -76,7 +75,45 @@ const navigate=useNavigate();
       setErrors({ ...errors, [name]: '' });
     }
   };
+//
+  const [epsOptions, setEpsOptions] = useState([]);
+  const [selectedEPS, setSelectedEPS] = useState(null);
 
+  useEffect(() => {
+    obtenerEPS()
+      .then((data) => {
+        // Convierte los datos de EPS en el formato adecuado para react-select
+        const options = data.map((eps) => ({
+          value: eps._id,
+          label: eps.nombre,
+        }));
+        setEpsOptions(options);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleEPSChange = (selectedOption) => {
+    setSelectedEPS(selectedOption);
+  };
+
+  // 
+
+  const [fichas, setFichas] = useState({});
+  const [selectedFicha, setSelectedFicha] = useState(null);
+
+  useEffect(() => {
+    obtenerFichas()
+      .then((data) => {
+        setFichas(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  
 return (
   <div>
     <img src={miImagen} alt="Logo de bienestar" />
@@ -166,23 +203,25 @@ return (
           { value: "administrador", label: "Administrador" },
         ]}
       />
-
-      <Autocomplete
-        nombre="Ficha"
-        array={[
-          { label: 2712267, programa: "Programación de software" },
-          { label: 2812267, programa: "analicis " },
-          { label: 2912267, programa: "cocina" },
-        ]}
+       <Select
+        options={Object.entries(fichas).map(([codigo,nombre]) => {
+          return ({
+            value: codigo,
+            label: `ID: ${codigo}, Nombre: ${nombre}`,
+          });
+        })}
+        value={selectedFicha}
+        onChange={(selectedOption) => setSelectedFicha(selectedOption)}
+        placeholder="Selecciona una ficha..."
       />
-       <Autocomplete
-        nombre="EPS"
-        array={[
-          { label: "cosalud", programa: "Programación de software" },
-          { label: 2812267, programa: "analicis " },
-          { label: 2912267, programa: "cocina" },
-        ]}
+    
+      <Select
+        value={selectedEPS}
+        onChange={handleEPSChange}
+        options={epsOptions}
+        placeholder="Elije una EPS..."
       />
+    
            <Desplegable
       label="Tipo de Sangre"
         options={[

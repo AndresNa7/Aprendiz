@@ -7,10 +7,18 @@ async function obtenerFichas() {
             throw new Error('No se pudo obtener la lista de fichas');
         }
         const data = await response.json();
-        return data;
+
+        // Procesar los datos para obtener el nombre y el número de la ficha
+        const fichas = {};
+        data.forEach((ficha) => {
+            fichas[ficha.codigo] = fichas.nombre;
+        });
+
+        return fichas;
     } catch (error) {
         throw new Error(`Error al obtener fichas: ${error.message}`);
     }
-  }
-  
-  export { obtenerFichas };
+}
+
+export { obtenerFichas };
+
