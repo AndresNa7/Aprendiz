@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Inicio.css';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+  const navigate= useNavigate
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,8 +16,26 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica de autenticación, como enviar los datos al servidor
+    navigate('/Panel',{
+      replace:true,
+      state:{
+        logged: true,
+        email,
+        password
+      }
+    })
+    onResetFrom(); 
   };
+      
+    const handleForgotPassword = () => {
+      const email = prompt('Por favor, ingresa tu dirección de correo electrónico:');
+      if (email) {
+        // Aquí puedes enviar una solicitud al servidor para restablecer la contraseña
+        // Esto podría implicar enviar una solicitud POST al servidor con el correo electrónico
+        // Luego, el servidor enviaría un correo electrónico con un enlace de restablecimiento de contraseña
+      }
+    };
+
 
   return (
     <div className='inicio'>
@@ -45,6 +66,9 @@ const Login = () => {
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
+        <p>
+        <a href="#" onClick={handleForgotPassword}>¿Olvidaste la contraseña?</a>
+      </p>
       </form>
       </div>
     </div>

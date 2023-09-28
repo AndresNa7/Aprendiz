@@ -13,13 +13,14 @@ import { obtenerFichas } from '../api/ficha';
 import { obtenerEPS } from '../api/Eps'; 
 import { obtenerdominio } from '../api/Dominio';
 import { obtenerRol } from '../api/rol';
-import Select from 'react-select';
-
+ 
 
 
 
   //la parte de registro
   const Registro = () => {
+const navigate=useNavigate();
+
     const handleClick = () => {
       alert('¡Botón clickeado!');
      
@@ -31,7 +32,14 @@ import Select from 'react-select';
     });
     const handleSubmit = async (event) => {
       event.preventDefault();
+      navigate('/Panel',{
+        replace:true,
+        state:{
+          logged: true,
+          nombres,
 
+        }
+      });
   // la parte de peticiones dedominio, rol
       try {
         const obtener = await obtenerdominio()
