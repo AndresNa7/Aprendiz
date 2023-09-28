@@ -17,6 +17,7 @@ import Select from 'react-select';
 
 
 
+
   //la parte de registro
   const Registro = () => {
     const handleClick = () => {
@@ -196,10 +197,10 @@ return (
         ]}
       />
        <Select
-        options={Object.entries(fichas).map(([codigo,nombre]) => {
+        options={Object.entries(fichas).map(([codigo]) => {
           return ({
             value: codigo,
-            label: `ID: ${codigo}, Nombre: ${nombre}`,
+            label: `ficha: ${codigo}`,
           });
         })}
         value={selectedFicha}
@@ -215,6 +216,7 @@ return (
       />
     
            <Desplegable
+           className = 'tipo sangre'
       label="Tipo de Sangre"
         options={[
           { value: "Tipo de sangre", label: "Tipo de sangre" },

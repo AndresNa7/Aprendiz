@@ -1,73 +1,63 @@
 .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    text-align: left;
-    position: relative;
-    bottom: 0;
-    right: 0;
-    top: -5px;
-    left: 0;
-    margin: 0;
-    padding: 0 4px;
-    pointer-events: none;
-    border-radius: inherit;
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-    min-width: 0%;
-    border-color: rgba(0, 0, 0, 0) !important;
-  }
-  
-  .css-wb57ya-MuiFormControl-root-MuiTextField-root {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    position: relative;
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    vertical-align: top;
-    width: 100%;
-    background-color: white;
-    border-radius: 30px;
-    height: 40px;
-    width: 110% !important;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.182);
-  }
-  
-  .css-wb57ya-MuiFormControl-root-MuiTextField-root {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    position: relative;
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    vertical-align: top;
-    width: 100%;
-    bottom: 10px;
-  }
-  .css-1c20jd8-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
-    width: 0;
-    min-width: 777px !important;
-  }
-  a {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #1976d2;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 168px !important;
-    cursor: pointer;
+  text-align: left;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  top: -5px;
+  left: 0;
+  margin: 0;
+  padding: 0 4px;
+  pointer-events: none;
+  border-radius: inherit;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  min-width: 0%;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.css-wb57ya-MuiFormControl-root-MuiTextField-root {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  vertical-align: top;
+  width: 100%;
+  background-color: white;
+  border-radius: 30px;
+  height: 40px;
+  width: 110% !important;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.182);
+}
+
+.css-wb57ya-MuiFormControl-root-MuiTextField-root {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  vertical-align: top;
+  width: 100%;
+  bottom: 10px;
+}
+.css-1c20jd8-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+  width: 0;
+  min-width: 777px !important;
 }
 a {
   display: inline-block;
@@ -76,26 +66,104 @@ a {
   color: #fff;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 168px !important;
   cursor: pointer;
-  width: 60px !important;
-  text-align: center;
-  margin-bottom: 18px;
+}
+a {
+display: inline-block;
+padding: 0.75rem 1.5rem;
+background-color: #1976d2;
+color: #fff;
+text-decoration: none;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 60px !important;
+text-align: center;
+margin-bottom: 18px;
 }
 form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding:3.5rem !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.0) !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0) !important;
-  border: none !important;
+max-width: 500px;
+margin: 0 auto;
+padding:3.5rem !important;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.0) !important;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: rgba(255, 255, 255, 0) !important;
+border: none !important;
 }
 input, select, button, label {
-  width: 261% !important;
-  max-width: 417px;
-  border-radius: 20px;
+width: 261% !important;
+max-width: 417px;
+border-radius: 20px;
 }
+input, select, button, label {
+width: 100%;
+max-width: 369px !important;
+border-radius: 32px;
+}
+.css-13cymwt-control {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 40px !important;
+
+  outline: 0!important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 0ms;
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 32px !important;
+  border-style: solid;
+  border-width: 1px !important;
+  box-sizing: border-box;
+}
+.css-1dimb5e-singleValue {
+  grid-area: 1/1/2/3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(0, 0%, 20%);
+  margin-left: 2px;
+  margin-right: 2px;
+  box-sizing: border-box;
+  width: 320px !important;
+}
+.css-w9q2zk-Input2 {
+  visibility: visible;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1/1/2/3;
+  grid-template-columns: 0 min-content;
+  margin: 1px;
+  padding-bottom: 11px;
+  padding-top: 7px;
+  color: hsl(0, 0%, 20%);
+  box-sizing: border-box;
+  width: 320px !important;
+}
+.css-b62m3t-container {
+  position: relative;
+  box-sizing: border-box;
+  height: 60px !important;
+}
+
