@@ -1,0 +1,78 @@
+/* Navbar.css */
+.navbar-container {
+    color: #fff;
+    padding: 10px 0;
+    border: 2px solid transparent; /* Agrega un borde transparente */
+    border-image-slice: 1;
+    background-color: #ffffff00;
+    width: 150%;
+  }
+  
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  
+  /* Mueve el inicio de sesión (nav) a la izquierda */
+  .navbar nav {
+    margin-left: auto;
+  }
+  
+  
+  /* Resto de estilos sin cambios */
+  
+  
+  .navbar h1 {
+    margin: 0;
+  }
+  
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  
+  .user {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .userName {
+    margin-right: 10px;
+  }
+  
+  
+  .btn-logout {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  
+  .btn-logout:hover {
+    background-color: #c0392b;
+  }
+  
+  
+  .panel {
+    position: relative;
+    right: 30%;
+  }
+  
+  
+  .rutas {
+    position: relative;
+    left: 30%;
+  }
+  
+  
+  

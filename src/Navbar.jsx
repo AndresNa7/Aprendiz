@@ -1,36 +1,38 @@
-import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
-function navbar() {
-  const {state} =useLocation()
-  console.log (state);
- return(
-  <>
-  <header>
-  <h1><Link to="/panel"> logo</Link></h1>
-  
+import React from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import './Navbar.css'; // Importa un archivo CSS para los estilos
+import miImagen from "../src/pages/img/Logo.png";
 
-  {
-    state?.logged ?(
-      <div className="user">
-      <span className="userName">{state?.name}</span>
-      <button className='btn-logout'>Cerrar sesion</button>
+
+function Navbar() {
+  const { state } = useLocation();
+  console.log(state);
+
+
+  return (
+    <div className="navbar-container">
+      <header className="navbar">
+        <h1 className='panel'>
+        <img src={miImagen} alt="Logo de bienestar" />
+        </h1>
+        {state?.logged ? (
+          <div className="user">
+            <span className="userName">{state?.name}</span>
+            <button className="btn-logout">Cerrar sesión</button>
+          </div>
+        ) : (
+          <nav className='rutas'>
+            <Link to="/Inicio">Iniciar sesión</Link>
+            <Link to="/Registro">Registrarse</Link>
+          </nav>
+        )}
+      </header>
+      <Outlet />
     </div>
-    ) : (
-
-<nav>
-    <Link to='/Inicio'> Iniciar sesion </Link>
-    <Link to='/Registro'> Registrarse</Link>
-  </nav>
-    )}
- 
-  </header>
-  
-      
-      <Outlet/>
-  
-  
-  </>
- )
+  );
 }
 
-export default navbar;
+
+export default Navbar;
+
+
