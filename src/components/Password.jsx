@@ -40,6 +40,7 @@ const Password = ({ labelText = 'Password' }) => {
           ),
           style: {
             borderBottom: '1px solid #000', // Añade una línea inferior
+            width: '30px'
           },
         }}
         sx={{

@@ -38,7 +38,8 @@ const Login = () => {
 
 
   return (
-    <div className='contenedor'>
+    <div className='inicio'>
+      <div className='contendor'>
       <h2>Iniciar Sesión</h2>
       <div className="contenedor-hijo">
       <form onSubmit={handleSubmit}>
@@ -70,6 +71,7 @@ const Login = () => {
       </p>
       </form>
       </div>
+    </div>
     </div>
   );
 };
