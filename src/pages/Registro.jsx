@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import Autocomplete from "../components/Autocomplete";
 import Button from "../components/Button";
 import Desplegable from "../components/Desplegable";
 import Fecha from "../components/Fecha";
@@ -13,7 +12,8 @@ import { obtenerFichas } from '../api/ficha';
 import { obtenerEPS } from '../api/Eps'; 
 import { obtenerdominio } from '../api/Dominio';
 import { obtenerRol } from '../api/rol';
- 
+import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 
 
 
