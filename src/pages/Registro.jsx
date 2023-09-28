@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Desplegable from "../components/Desplegable";
 import Fecha from "../components/Fecha";
 import Input from "../components/Input";
-import Politicas from "../components/Politicas";
+import Politicas from "../components/SpringModal";
 import Password from "../components/Password";
 import miImagen from "./img/Logo.png";
 import "./Registro.css";
