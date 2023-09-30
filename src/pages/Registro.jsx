@@ -1,9 +1,10 @@
 import React, { useState,useEffect } from 'react';
+import Autocomplete from "../components/Autocomplete";
 import Button from "../components/Button";
 import Desplegable from "../components/Desplegable";
 import Fecha from "../components/Fecha";
 import Input from "../components/Input";
-import Politicas from "../components/SpringModal";
+import SpringModal from "../components/SpringModal";
 import Password from "../components/Password";
 import miImagen from "./img/Logo.png";
 import "./Registro.css";
@@ -12,15 +13,12 @@ import { obtenerFichas } from '../api/ficha';
 import { obtenerEPS } from '../api/Eps'; 
 import { obtenerdominio } from '../api/Dominio';
 import { obtenerRol } from '../api/rol';
-import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 
 
 
   //la parte de registro
   const Registro = () => {
-const navigate=useNavigate();
-
     const handleClick = () => {
       alert('¡Botón clickeado!');
      
@@ -32,14 +30,7 @@ const navigate=useNavigate();
     });
     const handleSubmit = async (event) => {
       event.preventDefault();
-      navigate('/Panel',{
-        replace:true,
-        state:{
-          logged: true,
-          nombres,
 
-        }
-      });
   // la parte de peticiones dedominio, rol
       try {
         const obtener = await obtenerdominio()
@@ -205,10 +196,10 @@ return (
         ]}
       />
        <Select
-        options={Object.entries(fichas).map(([codigo]) => {
+        options={Object.entries(fichas).map(([codigo,nombre]) => {
           return ({
             value: codigo,
-            label: `ficha: ${codigo}`,
+            label: `ID: ${codigo}, Nombre: ${nombre}`,
           });
         })}
         value={selectedFicha}
@@ -224,7 +215,6 @@ return (
       />
     
            <Desplegable
-           className = 'tipo sangre'
       label="Tipo de Sangre"
         options={[
           { value: "Tipo de sangre", label: "Tipo de sangre" },
@@ -234,10 +224,54 @@ return (
         ]}
       />
       <Input label="Dirección" />
+
+      <SpringModal
+      buttonText='Política de Privacidad y Seguridad'
+      modalTitle='Política de Privacidad y Seguridad de "Bienestar al Aprendiz"'
+      modalContent={`Bienvenido a "Bienestar al Aprendiz" ("Nosotros", "nuestra" o "nuestro"). Tu privacidad y seguridad son fundamentales para nosotros. Esta Política de Privacidad y Seguridad describe cómo recopilamos, usamos, divulgamos y protegemos tu información personal y cómo mantenemos la seguridad de nuestros servicios. Al utilizar "Bienestar al Aprendiz", aceptas las prácticas descritas en esta política.
+
+      1. Información que Recopilamos
+      
+      Recopilamos información que proporcionas directamente cuando utilizas nuestra aplicación, como tu nombre, dirección de correo electrónico, información de contacto y cualquier otra información que decidas compartir con nosotros. También podemos recopilar información automáticamente, como registros de servidores y datos de uso, cuando accedes a nuestros servicios.
+      
+      2. Uso de la Información
+      
+      Utilizamos la información que recopilamos para proporcionar, mantener, mejorar y proteger nuestros servicios, así como para cumplir con nuestras obligaciones legales. Esto puede incluir:
+      
+      Personalizar y mejorar tu experiencia en la aplicación "Bienestar al Aprendiz".
+      Enviar comunicaciones relacionadas con el servicio y notificaciones importantes.
+      Analizar el rendimiento de la aplicación y solucionar problemas técnicos.
+      Cumplir con las leyes y regulaciones aplicables.
+      3. Divulgación de la Información
+      
+      No compartimos tu información personal con terceros, excepto en las siguientes circunstancias:
+      
+      Cuando has dado tu consentimiento para compartir información específica.
+      Para cumplir con una orden judicial o requerimiento legal.
+      Con proveedores de servicios de confianza que nos ayudan a ofrecer nuestros servicios.
+      En caso de una fusión, adquisición o venta de activos de la empresa.
+      4. Seguridad de la Información
+      
+      Tomamos medidas razonables para proteger la información personal que recopilamos y mantenemos en "Bienestar al Aprendiz". Esto incluye medidas de seguridad físicas, electrónicas y administrativas para proteger contra el acceso no autorizado, la divulgación, la alteración o la destrucción de datos.
+      
+      5. Cookies y Tecnologías Similares
+      
+      Utilizamos cookies y tecnologías similares para mejorar la funcionalidad y la experiencia del usuario en "Bienestar al Aprendiz". Puedes configurar tu navegador para rechazar todas las cookies o para recibir un aviso cuando se envíe una cookie. Sin embargo, algunas funciones de la aplicación pueden no funcionar correctamente sin cookies.
+      
+      6. Tus Derechos y Opciones
+      
+      Tienes derechos relacionados con tus datos personales, incluyendo el derecho a acceder, corregir, eliminar, portar y restringir el procesamiento de tus datos. Puedes ejercer estos derechos en cualquier momento contactándonos a través de [correo electrónico de contacto].
+      
+      7. Cambios en esta Política
+      
+      Nos reservamos el derecho de actualizar esta Política de Privacidad y Seguridad en cualquier momento. Te notificaremos sobre cambios significativos en esta política y obtendremos tu consentimiento si es necesario.
+      
+      8. Contacto
+      
+      Si tienes preguntas o preocupaciones sobre esta Política de Privacidad y Seguridad, o si deseas ejercer tus derechos relacionados con tus datos personales, contáctanos a través de [correo electrónico de contacto].`}/>
+
       <a href="#" onClick={mostrarInformacionPersonal}>Atrás</a>
       <Button label="Registrar" onClick={handleClick} />
-      <Politicas label="Politicas*" />
-      
         </div>
       )}
     </form>

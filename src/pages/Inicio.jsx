@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import Password from "../components/Password";
 import './Inicio.css';
-import { useNavigate } from 'react-router-dom';
-const Login = () => {
-  const navigate= useNavigate
 
+const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -16,26 +15,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/Panel',{
-      replace:true,
-      state:{
-        logged: true,
-        email,
-        password
-      }
-    })
-    onResetFrom(); 
+    // Aquí puedes agregar la lógica de autenticación, como enviar los datos al servidor
   };
-      
-    const handleForgotPassword = () => {
-      const email = prompt('Por favor, ingresa tu dirección de correo electrónico:');
-      if (email) {
-        // Aquí puedes enviar una solicitud al servidor para restablecer la contraseña
-        // Esto podría implicar enviar una solicitud POST al servidor con el correo electrónico
-        // Luego, el servidor enviaría un correo electrónico con un enlace de restablecimiento de contraseña
-      }
-    };
-
 
   return (
     <div className='inicio'>
@@ -55,20 +36,18 @@ const Login = () => {
           />
         </div>
         <div>
-          <label className='contraseña' htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
+
+          <Password
+          labelText="Contraseña"
+            type="Contraseña"
+            id="contraseña"
+            name="Contraseña"
             value={formData.password}
             onChange={handleInputChange}
             required
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
-        <p>
-        <a href="#" onClick={handleForgotPassword}>¿Olvidaste la contraseña?</a>
-      </p>
       </form>
       </div>
     </div>
@@ -77,3 +56,4 @@ const Login = () => {
 };
 
 export default Login;
+
